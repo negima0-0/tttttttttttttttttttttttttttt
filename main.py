@@ -27,7 +27,7 @@ WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, '
 driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[1]/a/span[4]').click()
 button_elements = driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[8]/div/div/p[2]/button')
 
-#result画面に遷移する前の50 Billion tests hoge~が出てきたときのクリック用
+#result画面に遷移する前に50 Billion tests hoge~が出たら例外処理でクリックする用
 try:
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, 'pre-fold mobile-test-complete')))
     time.sleep(1)
