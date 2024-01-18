@@ -35,7 +35,7 @@ try:
             f.write(png)
         print(speedvalue.text, speedunits.text) #debug
         driver.execute_script("window.open('https://google.com')") #test open new tab
-        time.sleep(2)
+        time.sleep(5)
     driver.quit()
 except :
     print("You DO NOT have a working internet connection.")
