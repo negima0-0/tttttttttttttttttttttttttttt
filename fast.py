@@ -13,7 +13,7 @@ driver = webdriver.Chrome() #storing the webdriver in a variable
 url = "https://fast.com/"
 driver.get(url) #this time its an custom made website to test web threats.
 print("\n\n")
-wait = WebDriverWait(driver, 30)
+wait = WebDriverWait(driver, 60)
 try:
     infoLink = wait.until(
             EC.element_to_be_clickable(
@@ -31,8 +31,10 @@ try:
             EC.presence_of_element_located(
             (By.ID, 'speed-units'))
             )
-        print("Your connection speed is :")
-        print (speedvalue.text ,speedunits.text)
+        png = driver.find_element(By.XPATH,'/html/body/div').screenshot_as_png
+        with open('./ss.png', 'wb') as f:
+            f.write(png)
+        print(speedvalue.text, speedunits.text) #debug
     driver.quit()
 except :
     print("You DO NOT have a working internet connection.")
