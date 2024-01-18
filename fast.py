@@ -8,7 +8,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-# this must be targeted to the webdriver installation folder
 driver = webdriver.Chrome() #storing the webdriver in a variable
 url = "https://fast.com/"
 driver.get(url) #this time its an custom made website to test web threats.
@@ -32,9 +31,11 @@ try:
             (By.ID, 'speed-units'))
             )
         png = driver.find_element(By.XPATH,'/html/body/div').screenshot_as_png
-        with open('./ss.png', 'wb') as f:
+        with open('./fastcom.png', 'wb') as f:
             f.write(png)
         print(speedvalue.text, speedunits.text) #debug
+        driver.execute_script("window.open('https://google.com')") #test open new tab
+        time.sleep(2)
     driver.quit()
 except :
     print("You DO NOT have a working internet connection.")
