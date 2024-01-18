@@ -38,5 +38,5 @@ try:
         time.sleep(5)
     driver.quit()
 except :
-    print("You DO NOT have a working internet connection.")
+    print("You have problem with internet connection.")
     driver.quit()
